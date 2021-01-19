@@ -35,14 +35,13 @@ class MarkovMachine {
 
 	// class method to pick random word from array
 	static randomWord(arr) {
-		let choice = Math.floor(Math.random() * arr.length);
-		return arr[choice];
+		return arr[Math.floor(Math.random() * arr.length)];
 	}
 
 	// method to create output text from markov machine- default number of words that will be taken at maximum
 	makeText(numWords = 100) {
 		// all the possible words are in the keys of the map; pick one of them at random to start with
-		let chainKeys = Array.from(this.chains.keys);
+		let chainKeys = Array.from(this.chains.keys());
 		let randomKey = MarkovMachine.randomWord(chainKeys);
 
 		// initializie output array
@@ -56,3 +55,7 @@ class MarkovMachine {
 		return output.join(' ');
 	}
 }
+
+// export the module
+
+module.exports = { MarkovMachine };
